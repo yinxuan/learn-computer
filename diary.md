@@ -36,11 +36,11 @@ public class PersonTest {
         System.out.println("我的名字叫 " + p.name + "我的年龄是 " + p.age);
     }
 }
-```
 通过javac PersonTest.java  ___  java Person就可以得到结果
 在这个过程中有几点错误：
 1、直接在定义Person类中进行对象的创建，没有注意到它只是一个实例，应该在main函数中进行
 2、在输入代码时输成p.say = ("JAVA语言很容易，学习很简单！")，没有注意到p.say的用法
+```
 
 ####1. 对于所有的类来说，类名的首字母应该大写
 ####2.创建第一个java对象
