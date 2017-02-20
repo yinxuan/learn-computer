@@ -11,8 +11,9 @@
 eg1:
 创建一个类，类名叫Person.java
 /**
- * Created by s on 17/2/20.
- */
+* Created by s on 17/2/20.
+*/
+```java
 public class Person{
     public String name;
     public int age;
@@ -20,7 +21,9 @@ public class Person{
         System.out.println(content);
     }
 }
+```
 再创建它的主函数，作为它的一个实例，类名叫它PersonTest.java
+
 /**
  * Created by s on 17/2/20.
  */
@@ -37,4 +40,6 @@ public class PersonTest {
 在这个过程中有几点错误：
 1、直接在定义Person类中进行对象的创建，没有注意到它只是一个实例，应该在main函数中进行
 2、在输入代码时输成p.say = ("JAVA语言很容易，学习很简单！")，没有注意到p.say的用法
+
+
 

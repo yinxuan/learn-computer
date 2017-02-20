@@ -1,38 +1,23 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
 
-/**
- * Created by s on 17/2/19.
- */
-public class Test {
-
-    public static void main(String[] args) {
-        System.out.print("This is Test\n");
-        System.out.println("24");
-
-
-//        List<Integer> list = new ArrayList<>();
-//        list.add(1);
-//        list.add(10);
-//        list.add(100);
-//
-//        for (int i=0; i<list.size(); i++) {
-//            System.out.print("now is \n" + list.get(i) + "\n");
-//        }
-
-
-//        Stack<Integer> stack = new Stack<>();
-//        stack.push(1);
-//        stack.push(100);
-//        stack.push(1000);
-//        System.out.print("stack " + stack.pop() + "\n");
-//        System.out.print("stack " + stack.pop() + "\n");
-//        System.out.print("stack " + stack.pop() + "\n");
-
-
-
+public class Test{
+    public void pupAge() {
+        int age= 0;
+        age = age + 7;
+        System.out.println("小狗的年龄是: " + age);
     }
 
-
+    public static void main(String args[]) {
+        Test test = new Test();
+        test.pupAge();
+    }
 }
+
+
+
+
+
+
+
+
+
+
