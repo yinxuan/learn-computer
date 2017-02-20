@@ -132,7 +132,10 @@ public class Employee { 
     }    
     /* 打印信息 */     
     public void printEmployee(){         
-        System.out.println("名字:"+ name );         System.out.println("年龄:" + age );         System.out.println("职位:" + designation );         System.out.println("薪水:" + salary);     
+        System.out.println("名字:"+ name );         
+        System.out.println("年龄:" + age );         
+        System.out.println("职位:" + designation );         
+        System.out.println("薪水:" + salary);     
     }
  } 
 ```
@@ -163,6 +166,7 @@ public class EmployeeTest { 
 
 #####3、通过javac EmployeeTest.java  —> java EmployeeTest
 可以得到：
+```
 名字:RUNOOB1
 年龄:26
 职位:高级程序员
@@ -172,3 +176,4 @@ public class EmployeeTest { 
 职位:菜鸟程序员
 薪水:500.0
 至此即实现了对两个对象的调用
+```
