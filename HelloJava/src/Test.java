@@ -9,6 +9,7 @@ public class Test {
 
     public static void main(String[] args) {
         System.out.print("This is Test\n");
+        System.out.println("24");
 
 
 //        List<Integer> list = new ArrayList<>();
@@ -21,13 +22,14 @@ public class Test {
 //        }
 
 
-        Stack<Integer> stack = new Stack<>();
-        stack.push(1);
-        stack.push(100);
-        stack.push(1000);
-        System.out.print("stack " + stack.pop() + "\n");
-        System.out.print("stack " + stack.pop() + "\n");
-        System.out.print("stack " + stack.pop() + "\n");
+//        Stack<Integer> stack = new Stack<>();
+//        stack.push(1);
+//        stack.push(100);
+//        stack.push(1000);
+//        System.out.print("stack " + stack.pop() + "\n");
+//        System.out.print("stack " + stack.pop() + "\n");
+//        System.out.print("stack " + stack.pop() + "\n");
+
 
 
     }
