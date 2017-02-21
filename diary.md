@@ -155,7 +155,7 @@ public class EmployeeTest { 
 ```
 
 #####3、通过javac EmployeeTest.java  —> java EmployeeTest
-可以得到：
+#####可以得到：
 ```
 名字:RUNOOB1
 年龄:26
@@ -198,8 +198,10 @@ public class InstanceCounter {
         System.out.println("Created " + InstanceCounter.getCount() + " instances");
     }
 }
+```
 
-输出结果是：
+#####输出结果是：
+```
 Starting with 0 instances
 Created 500 instances
 ```
@@ -229,8 +231,9 @@ public class Test {
       System.out.print("\n");
    }
 }
-
-输出结果为：
+```
+#####输出结果为：
+```
 10,20,30,40,50,
 James,Larry,Tom,Lacy,
 ```
@@ -252,7 +255,10 @@ public class Test {
       }
    }
 }
-输出结果为：
+```
+
+#####输出结果为：
+```
 10
 20
 ```
@@ -270,8 +276,105 @@ public class Test{
         System.out.println(sBuffer);
     }
 }
+```
 
-输出结果为：
+#####输出结果为：
+```java
 菜鸟教程官网：www.runoob.com
 ```
-###6. 
+###6. 数组的应用
+```java
+public class TestArray {
+   public static void main(String[] args) {
+      double[] myList = {1.9, 2.9, 3.4, 3.5};
+ 
+      // 打印所有数组元素
+      for (int i = 0; i < myList.length; i++) {
+         System.out.println(myList[i] + " ");
+      }
+      // 计算所有元素的总和
+      double total = 0;
+      for (int i = 0; i < myList.length; i++) {
+         total += myList[i];
+      }
+      System.out.println("Total is " + total);
+      // 查找最大元素
+      double max = myList[0];
+      for (int i = 1; i < myList.length; i++) {
+         if (myList[i] > max) max = myList[i];
+      }
+      System.out.println("Max is " + max);
+   }
+}
+```
+#####输出的结果是：
+
+```java
+1.9 
+2.9 
+3.4 
+3.5 
+Total is 11.7
+Max is 3.5
+```
+###7. ＊获取当前时期,在简诗上可以用到
+```java
+import java.util.*;
+import java.text.*;
+ 
+public class DateDemo {
+   public static void main(String args[]) {
+ 
+      Date dNow = new Date( );
+      SimpleDateFormat ft = 
+      new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+ 
+      System.out.println("Current Date: " + ft.format(dNow));
+   }
+}
+####这个获取的信息比较多
+```
+
+```java
+import java.util.Date;
+  
+public class DateDemo {
+
+   public static void main(String args[]) {
+       // 初始化 Date 对象
+       Date date = new Date();
+        
+       // 使用toString()显示日期和时间
+       System.out.printf("%1$s %2$tB %2$td, %2$tY", 
+                         "Due date:", date);
+   }
+}
+####这个获取的只有日期
+```
+
+###8. 用cat替换句子中所有的dog
+```java
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+ 
+public class RegexMatches
+{
+    private static String REGEX = "dog";
+    private static String INPUT = "The dog says meow. " +
+                                    "All dogs say meow.";
+    private static String REPLACE = "cat";
+ 
+    public static void main(String[] args) {
+       Pattern p = Pattern.compile(REGEX);
+       // get a matcher object
+       Matcher m = p.matcher(INPUT); 
+       INPUT = m.replaceAll(REPLACE);
+       System.out.println(INPUT);
+   }
+}
+```
+
+#####输出结果为：
+```
+The cat says meow. All cats say meow.
+```
