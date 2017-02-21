@@ -1,18 +1,20 @@
 
 ### 2017/2/19
+```
 1. git/github
 2. 安装 iterm2 oh-my-zsh sublime
 3. 创建 Test.java
 4. 熟悉 Mac OS
+```
 
 ###2017/2/20
+```
 1. 自学java的入门基础
 2. 多敲代码，练手
+```
+
 eg1:
 创建一个类，类名叫Person.java
-/**
-* Created by s on 17/2/20.
-*/
 ```java
 public class Person{
     public String name;
@@ -24,9 +26,6 @@ public class Person{
 ```
 再创建它的主函数，作为它的一个实例，类名叫它PersonTest.java
 ```java
-/**
- * Created by s on 17/2/20.
- */
 public class PersonTest {
     public static void main(String []args){
         Person p = new Person();
@@ -81,9 +80,6 @@ public class Puppy{ 
 ```
 ####4.实现对this的引用
 ```java
-/**  
-* Created by s on 17/2/20.  
-*/ 
 public class ReturnThis {
     //定义一个局部变量age     
     int age;     
@@ -105,9 +101,6 @@ public class ReturnThis {
 ####5.员工的收入情况
 #####1、创建员工的一个类
 ```java
-/**  
-* Created by s on 17/2/20.  
-*/ 
 import java.io.*; 
 public class Employee {     
     String name;     
@@ -141,9 +134,6 @@ public class Employee { 
 ```
 #####2、引出一个实例
 ```java
-/**  
-* Created by s on 17/2/20.  
-*/ 
 import java.io.*; 
 public class EmployeeTest {     
     public static void main(String args[]){       
@@ -177,3 +167,111 @@ public class EmployeeTest { 
 薪水:500.0
 至此即实现了对两个对象的调用
 ```
+
+###2017/2/21
+
+####1. 学习私有变量private
+```java
+public class InstanceCounter {
+
+    //定义一个私有变量numInstance
+    private static int numInstances = 0;
+
+    //由于numInstance是私有变量，所以需要通过getCount来调用
+    protected static int getCount() {
+        return numInstances;
+    }
+
+    private static void addInstance() {
+        numInstances++;
+    }
+
+    InstanceCounter() {
+        InstanceCounter.addInstance();
+    }
+
+    public static void main(String[] arguments) {
+        System.out.println("Starting with " + InstanceCounter.getCount() + " instances");
+        for (int i = 0; i < 500; ++i){
+            new InstanceCounter();
+        }
+        System.out.println("Created " + InstanceCounter.getCount() + " instances");
+    }
+}
+
+输出结果是：
+Starting with 0 instances
+Created 500 instances
+```
+
+###2. for循环的应用
+```java
+public class Test {
+   public static void main(String args[]){
+      //定义一个数组,可以观察到方括号写的位置是可以随意的，比如 ［ ］args
+      int [] numbers = {10, 20, 30, 40, 50};
+    
+      //这里引用了数组的增强型for循环，即x的类型应和数组里的数据类型一致，并且每次x等于该数组的一个元素
+      for(int x : numbers ){
+         System.out.print( x );
+         System.out.print(",");
+      }
+      System.out.print("\n");
+      String [] names ={"James", "Larry", "Tom", "Lacy"};
+
+      //这里也是利用了增强型for循环
+      for( String name : names ) {
+         System.out.print( name );
+         System.out.print(",");
+      }
+
+      //我觉得输出结果不好看，就加了这句
+      System.out.print("\n");
+   }
+}
+
+输出结果为：
+10,20,30,40,50,
+James,Larry,Tom,Lacy,
+```
+
+###3. break的应用
+```java
+public class Test {
+   public static void main(String args[]) {
+      int [] numbers = {10, 20, 30, 40, 50};
+ 
+      //增强型for循环
+      for(int x : numbers ) {
+         // x 等于 30 时跳出循环
+         if( x == 30 ) {
+            break;
+         }
+         System.out.print( x );
+         System.out.print("\n");
+      }
+   }
+}
+输出结果为：
+10
+20
+```
+
+###4.所有的包装类（Integer、Long、Byte、Double、Float、Short）都是抽象类 Number 的子类。
+
+###5.  Java StringBuffer 和 StringBuilder 类
+```java
+public class Test{
+    public static void main(String args[]){
+        StringBuffer sBuffer  =  new StringBuffer("菜鸟教程官网：");
+        sBuffer.append("www");
+        sBuffer.append(".runoob");
+        sBuffer.append(".com");
+        System.out.println(sBuffer);
+    }
+}
+
+输出结果为：
+菜鸟教程官网：www.runoob.com
+```
+###6. 
