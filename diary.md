@@ -378,3 +378,151 @@ public class RegexMatches
 ```
 The cat says meow. All cats say meow.
 ```
+
+###2017/2/22
+
+###1.
+```java
+public class Varargs {
+    //String...books类似于String [] books
+    public static void test(int a, String...books){
+        //增强型for循环，类似于数组，将books里的元素一个个都打印出来
+        for (String tmp : books){
+            //tmp只是代表一个临时变量
+            System.out.println(tmp);
+        }
+        System.out.println(a);
+    }
+
+    public static void main(String []args){
+        test(5, "疯狂java讲义", "轻量级java ee 企业应用实战");
+    }
+}
+```
+
+####输出结果为：
+```
+疯狂java讲义
+轻量级java ee 企业应用实战
+5
+```
+
+###2. 递归的运用
+```java
+####假设fn(0)=1;fn(1)=4;fn(n+2)=fn(n+1)+fn(n);求fn(10)
+public class Test{
+    public static int fn(int n){
+        if(n == 0){
+            return 1;
+        }
+        else if(n == 1){
+            return 4;
+        }
+        else{
+            //递归调用它本身
+            return 2*fn(n-1)+fn(n-2);
+        }
+    }
+    public static void main(String []args){
+        System.out.println(fn(10));
+    }
+}
+```
+
+####输出结果为：
+```
+10497
+```
+
+###3. 为了避免不同公司之间类名的重复；Oracle建议使用公司Internet域名倒写来作为包名
+
+###2017/2/23
+###1. 
+```java
+public class VariableOverrideTest {
+    //设置两个变量 name，price并隐藏起来
+    private String name = "李刚";
+    private static double price = 78.0;
+
+    public static void main(String[] args) {
+        int price = 65;
+        System.out.println(price);
+        System.out.println(VariableOverrideTest.price);
+        new VariableOverrideTest().info();
+    }
+
+    public void info() {
+        String name = "孙悟空";
+        System.out.println(name);
+        System.out.println(this.name);
+    }
+}
+```
+
+####输出结果为：
+```
+65
+78.0
+孙悟空
+李刚
+```
+
+###2. 运用 this 方法
+```java
+//定义一个Person类
+public class Test{
+    //设置两个私有变量，只能用setter,getter来调用
+    private String name = "李白";
+    private int age = 18;
+
+    public void setName(String name){
+        if(name.length() < 2 || name.length() >7){
+            return ;
+        }
+        else{
+            this.name = name;
+        }
+    }
+
+    public /*void*/String getName(){
+        return this.name;
+    }
+
+    public void setAge(int age){
+        if(age >100 || age <0){
+            return;
+        }
+        else{
+            this.age = age;
+        }
+    }
+
+    public /*void*/int getAge(){
+        return this.age;
+    }
+
+}
+```
+
+####主函数为
+```java
+public class TestReturn {
+    public static void main(String []args){
+        Test t = new Test();
+        t.setAge(1000);
+        System.out.println("未能设置age成员变量时 " + t.getAge());
+        t.setAge(30);
+        System.out.println("成功设置age成员变量时 " + t.getAge());
+        t.setName("李白");
+        System.out.println("成功设置name成员变量时 " + t.getName());
+    }
+}
+```
+
+####输出的结果是：
+```
+未能设置age成员变量时 18
+成功设置age成员变量时 30
+成功设置name成员变量时 李白
+```
+
