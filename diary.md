@@ -526,3 +526,180 @@ public class TestReturn {
 成功设置name成员变量时 李白
 ```
 
+package linkedlist;
+
+
+###2017/2/25
+
+1.在包中创建一个单链表,包名为linkedlist;
+
+####实现单链表的插入，删除，与遍历输出的功能
+```java
+#### LinkedListTest.java
+
+public class LinkedListTest{
+
+    public static void main(String [] args) {
+        //创建一个引用变量 linkedlist
+        LinkedList linkedList = new LinkedList();
+
+        //实现单链表中各个结点的值的插入
+        linkedList.add(10);
+        linkedList.add(20);
+        linkedList.add(30);
+        linkedList.add(40);
+        linkedList.add(50);
+
+        //实现对指定位置的结点的插入
+        linkedList.add(0,60);
+
+        //遍历输出改链表的所有结点的值
+        linkedList.print();
+
+        System.out.print("index=0: " + linkedList.get(0) + ", index=1: " + linkedList.get(1) + ", index=2: " + linkedList.get(2) + "\n");
+
+        //删除第五个结点
+        linkedList.remove(4);
+
+        System.out.print("index=0: " + linkedList.get(0) + ", index=1: " + linkedList.get(1)  + ", index=2: " + linkedList.get(2)  + ", index=3: " + linkedList.get(3) + ", index=4: " + linkedList.get(4) +"\n" );
+
+    }
+
+}
+```
+
+```java
+#### LinkedList.java
+#### 定义所需要用到的类
+
+package linkedlist;
+public class LinkedList{
+
+    //定义它的头结点
+    private Node head;
+
+    //增加一个新的结点
+    public void add(int value) {
+        Node node = new Node(value);
+
+        if (head == null) {
+            head = node;
+        } 
+        else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = node;
+        }
+    }
+
+    //在指定下标的后面增加一个结点
+    public void add(int index,int value){
+        if(index == 0 ){
+            Node newNode = new Node(value);
+            newNode.next = head;
+            head = newNode;
+        }
+        else{
+            Node current = head;
+            while(index > 0){
+                index--;
+                current = current.next;
+            }
+            Node newNode = new Node(value);
+             newNode.next = current.next;
+            current.next=newNode;
+        }
+    }
+
+    //获得给定下标的结点的值
+    public int get(int index) {
+        // index 在合理范围内
+        if (index == 0) {
+            if (head == null) {
+                return -100000;
+            }
+            return head.value;
+        } else {
+            Node current = head;
+            while (index > 0) {
+                index--;
+                current = current.next;
+            }
+            return current.value;
+        }
+    }
+
+    public int remove(int index) {
+          //index 在合理范围内
+          if(index == 0){
+            head = head.next;
+            return head.value;
+          }
+          else{
+            Node current = head;
+            //找到需要删除的结点的前一个结点
+            while(index > 1){
+                index--;
+                current = current.next;
+            }
+            //删除该结点的操作，，即跃过要删除的结点，直接指向它的下一个结点，再size--，即删除该结点了
+            current.setNext(current.next.next);
+            return current.value;
+          }
+    }
+
+    public void print(){
+        Node current =  head;
+        while(current != null){
+            System.out.println("链表的值为：" + current.value);
+            current = current.next;
+        }
+    }
+
+}
+```
+
+```java
+#### Node.java
+#### 定义结点的类
+
+package linkedlist;
+public class Node {
+
+    public int value;
+
+    public Node next;
+
+    public int size;
+
+    public Node(int value){
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public Node getNext() {
+        return this.next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+}
+```
