@@ -529,9 +529,9 @@ public class TestReturn {
 package linkedlist;
 
 
-###2017/2/25
+###2017/2/26
 
-1.在包中创建一个单链表,包名为linkedlist;
+在包中创建一个单链表,包名为linkedlist;
 
 ####实现单链表的插入，删除，与遍历输出的功能
 ```java
@@ -703,3 +703,62 @@ public class Node {
     }
 }
 ```
+
+
+2017/3/3
+###自学MYSQL数据库
+1. 通过使用JDBC,JAVA程序可以非常方便的操作各种主流数据库
+2. JDBC = Java Database connectivity  即Java数据库连接，一种可以执行SQL语句的Java API
+3. 具有跨平台（即让相同的程序在不同的平台上运行）和跨数据库（三大数据库，MYSQL,Oracle,DB2）等特性
+4. 开发人员面对JDBC API编写应用程序，然后根据不同的数据库，使用不同的数据库驱动即可
+5. JDBC驱动：纯JAVA的，直接与数据库实例交互，这种驱动是智能的，它知道数据库使用的底层协议。这种驱动是目前最流行的JDBC驱动
+6. JDBC比ODBC更简单，更安全。
+7. 每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。
+
+
+2017/3/7
+###Overloading
+```java
+/**
+ * Created by s on 17/3/7.
+ */
+//每个重载（Overloading）的方法（或者构造函数）都必须有一个独一无二的参数类型列表。
+public class Overloading {
+    public int test(){
+        System.out.println("test1");
+        return 1;
+    }
+
+    public void test(int a){
+        System.out.println("test2");
+    }
+
+    //以下两个参数类型顺序不同
+    public String test(int a,String s){
+        System.out.println("test3");
+        return "returntest3";
+    }
+
+    public String test(String s,int a){
+        System.out.println("test4");
+        return "returntest4";
+    }
+
+    public static void main(String[] args){
+        Overloading o = new Overloading();
+
+        System.out.println(o.test());
+        //返回 test1   1
+
+        o.test(1);
+        //调用test(int a)这个函数，返回 test2
+
+        System.out.println(o.test(1,"test3"));
+        //调用test(String s,int a)这个函数，返回 test3   returntest3
+
+        System.out.println(o.test("test4",1));
+        //调用test(String s,int a)这个函数，返回 test4    returntest4
+    }
+}
+```
+
