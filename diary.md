@@ -762,3 +762,44 @@ public class Overloading {
 }
 ```
 
+2017/3/18
+##随机给一个字符数组，找出其中各不相同的字符，组成一个新的字符数组
+```java
+###1.创建一个新的字符数组b[]用来存放改变后的字符，由于字母最多只有26个，所以设置该数组的初始长度为26
+###2.从原数组中依次取出元素用于比较，如果在b[]中找不到与之对应的元素，则存入该元素
+###3.由于b[]中的元素不一定刚好全部填满，所以需要把此时的result[]里的元素依次存放起来，然后返回result数组 
+public class Return {
+
+    //这里有两个char[],第一个char[]代表返回一个数组，第二个char[]代表需要改变的数组a[]
+    public char[] returnChar(char[] a) {
+        int temp = 0;
+        char[] b = new char[26];
+        for(int i = 0; i < a.length; i++) {
+            char current = a[i];
+            //调用ifCharInArray这个函数，判断该字符是否重复
+            if(!ifCharInArray(current,b)) {
+                b[temp] = current;
+                temp++;
+            }
+        }
+
+        char[] result =new char[temp];
+        for(int j = 0; j < temp; j++) {
+            result[j] = b[j];
+        }
+        return result;
+    }
+
+    public boolean ifCharInArray(char targetChar, char[] content) {
+        for(int i = 0; i < content.length; i++) {
+            if(targetChar == content[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+}
+```
+
+##在static方法中不能使用this或者super关键字。
