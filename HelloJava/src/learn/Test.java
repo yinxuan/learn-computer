@@ -1,6 +1,7 @@
 package learn;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Created by s on 17/3/28.
@@ -11,78 +12,38 @@ import java.util.HashMap;
 public class Test {
     public static void main(String[] args) {
 
-        int[] input = {2,3,6,0,1,-2,7,2,2,5,7,9};
-        char[] input2 = {'a','b','c','d','a','c','f'};
-////        checkDuplicates(input);
-//        int[] result = solution(input);
-//        for(int i = 0; i < result.length; i++) {
-//            System.out.println(result[i]);
+//        int length = 20000;
+//        int[] input = new int[length];
+//        for (int i=0; i<length; i++) {
+//            input[i] = i;
 //        }
-        System.out.println(count(input));
-        System.out.println(test(input2));
-        System.out.println(testInteger(input));
-    }
+//
+//        int count = 100;
+//
+//        long timeStart = System.currentTimeMillis();
+//        for (int i=0; i<count; i++) {
+//            solution(input);
+//        }
+//        System.out.println("solution spent time: " + (System.currentTimeMillis() - timeStart));
+//
+//        timeStart = System.currentTimeMillis();
+//        for (int i=0; i<count; i++) {
+//            solution2(input);
+//        }
+//        System.out.print("solution2 spent time: " + (System.currentTimeMillis() - timeStart));
 
-    //
-    private static HashMap<Integer, Integer> count(int[] array) {
-        HashMap<Integer, Integer> result = new HashMap<>();
-        for (int i=0; i<array.length; i++) {
-            int num = array[i];
-
-            Integer currentCount;
-            if (!result.containsKey(num)) {
-                currentCount = 0;
-            } else {
-                currentCount = result.get(num);
+        int[] input = {2,2,2,2};
+        int[] result = solution2(input);
+        System.out.println("重复的数字为：");
+        for(int i = 0; i < result.length; i++) {
+            //规定的数字范围为1～32000
+            if(result[i] > 0) {
+                System.out.println(result[i]);
             }
-
-            currentCount++;
-
-            result.put(num, currentCount);
         }
-
-        return result;
     }
 
-    private static HashMap<Character,Integer> test(char[] array) {
-        HashMap<Character,Integer> result = new HashMap<>();
-        for(int i=0; i<array.length; i++) {
-            char num = array[i];
-
-            Integer current;
-            if (!result.containsKey(num)) {
-                current = 0;
-            } else {
-                current = result.get(num);
-            }
-
-            current++;
-
-            result.put(num,current);
-        }
-
-        return result;
-    }
-
-    private static HashMap<Integer,Integer> testInteger(int[] array) {
-        HashMap<Integer,Integer> result = new HashMap<>();
-        for(int i = 0; i < array.length; i++) {
-            int num = array[i];
-
-            Integer current;
-            if(!result.containsKey(num)) {
-                current = 0;
-            } else {
-                current = result.get(num);
-            }
-
-            current++;
-            result.put(num,current);
-        }
-
-        return result;
-    }
-
+    //方法一，利用两个for循环实现
     public static int[] solution(int[] array) {
         int[] a = new int[array.length];
         int temp = 0;
@@ -111,5 +72,40 @@ public class Test {
         return  result;
     }
 
+    //方法二，利用HashMap实现
+    public static int[] solution2(int[] array) {
+        HashMap<Integer,Integer> result = new HashMap<>();
+        int[] a = new int[array.length];
+        int temp = 0;
+        Integer current;
+        for(int i = 0; i < array.length; i++) {
+            int num = array[i]; //asdfadf
+            if(!result.containsKey(num)) { //asdfa
+                a[temp] = num; //asd
+                temp++; //asdf
+                current = 0; //asdfasdf
+            } else {
+                current = result.get(num);
+            }
+            result.put(num,current);
+        }
+        return a;
+    }
+
+    //方法三，利用HashSet实现
+    public static int[] solution3(int[] array) {
+        HashSet<Integer> set = new HashSet<>();
+        int[] a = new int[array.length];
+        int temp = 0;
+        for(int i = 0; i < array.length; i++) {
+            if(!set.contains(array[i])) {
+                a[temp] = array[i];
+                temp++;
+            } else {
+                break;
+            }
+        }
+        return a;
+    }
 }
 
