@@ -1,0 +1,60 @@
+java 基础
+java oop
+swing 操作
+JFrame
+对话框：
+    消息对话框JOptionPane
+            showMessageDialog()
+            showConfirmDialog()
+            showInputDialog()
+事件的处理:
+    事件源
+    事件
+    事件的处理程序
+
+    事件的监听器：
+    ActionListener
+    MouseListener
+
+菜单：menu（是放在窗体上的）
+开始菜单（上弹菜单）
+File(下拉菜单）
+右键：上下文菜单
+
+小结：
+1、创建菜单栏（JMenuBar)
+2、创建菜单（JMenu），然后使用菜单栏添加菜单
+3、创建菜单项（JMenuItem），使用菜单添加菜单项
+
+单选按钮多选一：
+菜单项：JMenu
+单选的选项：JRedioButtonMenuItem
+单选按钮的选项要放在一个组：
+            按钮组：ButtonGroup
+
+使用方法来完成菜单项的添加的优化
+可以通过循环来添加菜单项
+
+
+
+
+图形的绘制：
+1.awt
+    重写paint()方法
+2.swing
+    重写paintComponent()方法
+
+java.awt.Graphics的常用方法
+setFont():设置字体      new Font("字体名称","字体样式","字体大小");
+setColor():设置颜色     可以使用预定义的颜色Color.Blue，或者自定义的颜色new Color(红，绿，蓝)
+drawString():绘制字符串
+
+drawRect():空心矩形的绘制
+fillRect():实心矩形的绘制
+drawLine():绘制线条
+drawImage():绘制图像
+
+
+总结：
+1、菜单
+2、图形的绘制

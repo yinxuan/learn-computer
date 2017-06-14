@@ -53,6 +53,7 @@ public class Game {
             return false;
         }
     }
+
     //游戏规则
     public int rule(String s1,String s2) {
         if(s1.equals(s2)) {
